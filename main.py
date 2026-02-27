@@ -11,6 +11,8 @@ for i in cols:
 '''
 from data import fetch_data
 from decisiontree import load_and_preprocess, train_and_evaluate, visualise_tree
+import pandas as pd
+
 if __name__ == "__main__":
     URL = "https://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/german.data"
 
