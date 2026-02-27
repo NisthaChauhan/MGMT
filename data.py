@@ -36,14 +36,9 @@ def fetch_data(url):
     try:
         # Download the data
         response = requests.get(url)
-        response.raise_for_status()  # Check for download errors
-
+        response.raise_for_status()  
         # Load into pandas DataFrame (space-separated, no header)
         data = pd.read_csv(StringIO(response.text), sep=' ', header=None, names=columns)
-
-        # Display the first 5 rows
-        print("First 5 rows of the German Credit dataset:")
-        print(data.head())
 
     except requests.exceptions.RequestException as e:
         print(f"Error downloading data: {e}")
@@ -53,5 +48,6 @@ def fetch_data(url):
 
     return data
 
-if __name__ == "__main__":
+'''if __name__ == "__main__":
     data = fetch_data(url)
+'''
