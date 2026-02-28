@@ -1,4 +1,4 @@
-1. Decision Tree
+1.Decision Tree
 2.Naive Bayes
 3.Logistic Regression
 4.k-Nearest Neighbors (k-NN)
@@ -6,3 +6,8 @@
 6.AdaBoost
 7.Support Vector Machine (SVM)
 8.Neural Networks (MLP)
+
+
+Decision Tree
+SVM
+Nearest Neighbour

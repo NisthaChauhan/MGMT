@@ -90,6 +90,7 @@ def train_and_evaluate(X_train_processed, X_test_processed, y_train, y_test):
     return model
 
 
+# ── 3. FULL-DATA TREE VISUALISATION ─────────────────────────────────────────
 
 def visualise_tree(X_all, y_all, preprocessor, feature_names):
     """
@@ -106,20 +107,3 @@ def visualise_tree(X_all, y_all, preprocessor, feature_names):
     plt.title("Decision Tree – German Credit Data")
     plt.tight_layout()
     plt.show()
-
-
-# ── MAIN ─────────────────────────────────────────────────────────────────────
-
-if __name__ == "__main__":
-    URL = "https://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/german.data"
-
-    X_train_p, X_test_p, y_train, y_test, preprocessor, feature_names = load_and_preprocess(URL)
-
-    model = train_and_evaluate(X_train_p, X_test_p, y_train, y_test)
-
-    # Rebuild full X/y for the visualisation (needs original DataFrame)
-    data = fetch_data(URL)
-    df   = pd.DataFrame(data)
-    X_all = df.drop('class', axis=1)
-    y_all = df['class'].map({1: 0, 2: 1})
-    visualise_tree(X_all, y_all, preprocessor, feature_names)
