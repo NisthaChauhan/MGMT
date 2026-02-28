@@ -10,16 +10,17 @@ for i in cols:
     print(df[i].value_counts(),"\n*********************\n")
 '''
 from data import fetch_data
-from decisiontree import load_and_preprocess, train_and_evaluate, visualise_tree
+from decisiontree import load_and_preprocess_decision_tree, train_and_evaluate_decision_tree, visualise_tree
 import pandas as pd
+from svm import load_and_preprocess_svm, train_and_evaluate_svm
 
 if __name__ == "__main__":
     URL = "https://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/german.data"
 
-    X_train_p, X_test_p, y_train, y_test, preprocessor, feature_names = load_and_preprocess(URL)
+    X_train_p, X_test_p, y_train, y_test, preprocessor, feature_names = load_and_preprocess_svm(URL)
 
-    model = train_and_evaluate(X_train_p, X_test_p, y_train, y_test)
-
+    decision_tree_model = train_and_evaluate_decision_tree(X_train_p, X_test_p, y_train, y_test)
+    svm_model = train_and_evaluate_svm(X_train_p, X_test_p, y_train, y_test)    
     # Rebuild full X/y for the visualisation (needs original DataFrame)
     data = fetch_data(URL)
     df   = pd.DataFrame(data)
