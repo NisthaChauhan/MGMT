@@ -5,9 +5,9 @@ from knn import train_and_evaluate_knn, plot_k_vs_accuracy
 import pandas as pd
 
 if __name__ == "__main__":
-    URL = "https://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/german.data"
+    FILEPATH = "german.data"   # path to your local .data file
 
-    X_train_p, X_test_p, y_train, y_test, preprocessor, feature_names = load_and_preprocess(URL)
+    X_train_p, X_test_p, y_train, y_test, preprocessor, feature_names = load_and_preprocess(FILEPATH)
 
     decision_tree_model = train_and_evaluate_decision_tree(X_train_p, X_test_p, y_train, y_test)
     svm_model           = train_and_evaluate_svm(X_train_p, X_test_p, y_train, y_test)
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     # plot_k_vs_accuracy(X_train_p, y_train)
 
     # Optional: visualise the decision tree
-    # data  = fetch_data(URL)
+    # data  = fetch_data(FILEPATH)
     # df    = pd.DataFrame(data)
     # X_all = df.drop('class', axis=1)
     # y_all = df['class'].map({1: 0, 2: 1})
