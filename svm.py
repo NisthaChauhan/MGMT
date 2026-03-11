@@ -1,4 +1,4 @@
-from data import fetch_data
+from data import fetch_data, load_and_preprocess
 import pandas as pd
 import numpy as np
 from sklearn.compose import ColumnTransformer
@@ -14,6 +14,9 @@ def train_and_evaluate_svm(X_train_processed, X_test_processed, y_train, y_test)
     model = SVC(kernel='rbf', C=1.0, gamma='scale', random_state=42)
     model.fit(X_train_processed, y_train)
     y_pred = model.predict(X_test_processed)
+
+    print("*************SVM EVALUATION*************\N")
+    print(f"Accuracy: {model.score(X_test_processed, y_test):.3f}")
 
     print("Classification Report:")
     print(classification_report(y_test, y_pred))
