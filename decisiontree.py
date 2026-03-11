@@ -27,7 +27,7 @@ def train_and_evaluate_decision_tree(X_train_processed, X_test_processed, y_trai
     y_proba = model.predict_proba(X_test_processed)[:, 1]
 
     # ── Metrics ──
-    print("*************DECISION TREE EVALUATION*************\N")
+    #print("*************DECISION TREE EVALUATION*************\N")
     print(f"Accuracy:  {model.score(X_test_processed, y_test):.3f}")
     print(f"\nConfusion Matrix:\n{confusion_matrix(y_test, y_pred)}")
 
